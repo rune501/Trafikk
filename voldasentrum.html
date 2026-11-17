@@ -31,7 +31,7 @@ var VIDEO_ID = 'n729eeBAU3E';
 var CHANNEL_ID = '';
 
 var base = 'https://www.youtube-nocookie.com/embed/';
-var opts = '?autoplay=1&mute=1&playsinline=1&rel=0';
+var opts = '?autoplay=1&mute=1&playsinline=1&rel=0&controls=0&disablekb=1&iv_load_policy=3&fs=0';
 var src = CHANNEL_ID
   ? base + 'live_stream' + opts + '&channel=' + encodeURIComponent(CHANNEL_ID)
   : base + encodeURIComponent(VIDEO_ID) + opts;
