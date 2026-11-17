@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Volda sentrum live</title>
+<style>
+body{font-family:system-ui,sans-serif;background:#111;color:#eee;margin:0;padding:12px;max-width:50rem}
+a{color:#f5a623}.back{font-size:13px;text-decoration:none}
+h1{font-size:18px;margin:8px 0 12px}
+.video{position:relative;width:100%;aspect-ratio:16/9;background:#1e1e1e;border-radius:4px;overflow:hidden}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.t{color:#888;font-size:12px;margin-top:10px}
+</style>
+</head>
+<body>
+<a class="back" href="./">‹ Meny</a>
+<h1>Volda sentrum live</h1>
+<div class="video">
+  <iframe id="yt" title="Volda sentrum live (Voldahjarte)" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+<p class="t">
+  Direktesending fra YouTube-kanalen «Voldahjarte».
+  Vises ikke bildet? <a id="yt-link" href="https://www.youtube.com/live/2b_6NQET8O0" target="_blank" rel="noopener">Åpne på YouTube</a>.
+</p>
+<script>
+// Standard: en bestemt sending (video-ID).
+var VIDEO_ID = '2b_6NQET8O0';
+// Valgfritt: fyll inn kanal-ID (starter med UC...) for å alltid vise kanalens pågående sending,
+// selv om video-ID-en skulle endre seg. Er CHANNEL_ID satt, brukes den i stedet for VIDEO_ID.
+var CHANNEL_ID = '';
+
+var base = 'https://www.youtube-nocookie.com/embed/';
+var opts = '?autoplay=1&mute=1&playsinline=1&rel=0';
+var src = CHANNEL_ID
+  ? base + 'live_stream' + opts + '&channel=' + encodeURIComponent(CHANNEL_ID)
+  : base + encodeURIComponent(VIDEO_ID) + opts;
+document.getElementById('yt').src = src;
+if (CHANNEL_ID) {
+  document.getElementById('yt-link').href = 'https://www.youtube.com/channel/' + encodeURIComponent(CHANNEL_ID) + '/live';
+}
+</script>
+</body>
+</html>
